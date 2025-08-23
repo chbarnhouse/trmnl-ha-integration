@@ -11,7 +11,7 @@ This integration allows you to control and monitor TRMNL devices directly from H
 3. **Click the menu** (three dots) in the top right corner
 4. **Select "Custom repositories"**
 5. **Add this repository**:
-   - URL: `https://github.com/username/trmnl-ha-integration`
+   - URL: `https://github.com/chbarnhouse/trmnl-ha-integration`
    - Category: Integration
 6. **Click "Add"**
 7. **Find "TRMNL"** in the integrations list
