@@ -35,6 +35,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
         session,
         data[CONF_API_TOKEN],
         data.get(CONF_BASE_URL, DEFAULT_BASE_URL),
+        data[CONF_DEVICE_ID],
     )
 
     # Test connection

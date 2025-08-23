@@ -56,7 +56,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     base_url = entry.data.get(CONF_BASE_URL)
 
     session = async_get_clientsession(hass)
-    api_client = TRMNLApiClient(session, api_token, base_url)
+    api_client = TRMNLApiClient(session, api_token, base_url, device_id)
 
     coordinator = TRMNLDataUpdateCoordinator(hass, api_client, device_id)
     await coordinator.async_config_entry_first_refresh()

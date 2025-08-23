@@ -5,7 +5,7 @@ CONF_API_TOKEN = "api_token"
 CONF_DEVICE_ID = "device_id"
 CONF_BASE_URL = "base_url"
 
-DEFAULT_BASE_URL = "https://api.usetrmnl.com"
+DEFAULT_BASE_URL = "https://usetrmnl.com"
 DEFAULT_SCAN_INTERVAL = 30  # seconds
 
 # Entity types
