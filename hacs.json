@@ -1,9 +1,7 @@
 {
   "name": "TRMNL Integration",
   "content_in_root": false,
-  "filename": "trmnl",
   "country": ["US", "CA", "GB", "AU", "DE", "FR", "NL", "SE", "NO", "DK", "FI"],
-  "zip_release": true,
   "homeassistant": "2024.1.0",
   "render_readme": true,
   "domains": ["trmnl"],
