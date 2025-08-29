@@ -1,0 +1,9 @@
+{
+  "name": "TRMNL Integration",
+  "content_in_root": false,
+  "country": ["US", "CA", "GB", "AU", "DE", "FR", "NL", "SE", "NO", "DK", "FI"],
+  "homeassistant": "2024.1.0",
+  "render_readme": true,
+  "domains": ["trmnl"],
+  "iot_class": "Cloud Polling"
+}
