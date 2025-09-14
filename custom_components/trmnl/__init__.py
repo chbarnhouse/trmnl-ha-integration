@@ -4,8 +4,23 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.helpers.typing import ConfigType
 
+<<<<<<< HEAD
 from .const import DOMAIN, PLATFORMS, CONF_HOST, CONF_PORT, SERVICE_UPDATE_SCREEN, SERVICE_REFRESH_DEVICE
 from .api import TRMNLApi
+=======
+from .api import TRMNLApiClient
+from . import services
+from .const import (
+    DOMAIN,
+    CONF_API_TOKEN,
+    CONF_DEVICE_ID,
+    CONF_BASE_URL,
+    DEFAULT_SCAN_INTERVAL,
+    SERVICE_REFRESH_DISPLAY,
+    SERVICE_UPDATE_PLUGIN,
+    SERVICE_SEND_NOTIFICATION,
+)
+>>>>>>> 4a87724 (TRMNL Home Assistant Integration v3.8.0 with external screenshot service support)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -17,6 +32,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up TRMNL from a config entry."""
+<<<<<<< HEAD
     host = entry.data[CONF_HOST]
     port = entry.data.get(CONF_PORT, 2300)
     
@@ -52,6 +68,26 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         "devices": devices,
     }
     
+=======
+    api_token = entry.data[CONF_API_TOKEN]
+    device_id = entry.data[CONF_DEVICE_ID]
+    base_url = entry.data.get(CONF_BASE_URL)
+
+    session = async_get_clientsession(hass)
+    api_client = TRMNLApiClient(session, api_token, base_url, device_id)
+
+    coordinator = TRMNLDataUpdateCoordinator(hass, api_client, device_id)
+    await coordinator.async_config_entry_first_refresh()
+
+    hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
+    hass.data.setdefault(DOMAIN, {})["api"] = api_client  # Make API available to services
+
+    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+    
+    # Setup dashboard capture services
+    await services.async_setup_services(hass)
+
+>>>>>>> 4a87724 (TRMNL Home Assistant Integration v3.8.0 with external screenshot service support)
     # Register services
     await _register_services(hass, entry)
     
