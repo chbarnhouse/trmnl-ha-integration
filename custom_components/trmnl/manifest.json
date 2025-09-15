@@ -1,7 +1,7 @@
 {
   "domain": "trmnl",
   "name": "TRMNL",
-  "version": "3.8.0",
+  "version": "3.6.25",
   "documentation": "https://github.com/chbarnhouse/trmnl-ha-integration",
   "issue_tracker": "https://github.com/chbarnhouse/trmnl-ha-integration/issues",
   "dependencies": [],
